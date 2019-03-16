@@ -84,11 +84,3 @@ class SitemapGenerator:
             items = (source_class)().get_items()
             filename = self.xml_file_maker.create(items)
             return filename
-
-
-sitemap_sources = [JobSitemap,]
-sitemap_generator = SitemapGenerator(
-    sources=sitemap_sources,
-    target_location="/tmp"
-)
-filename = sitemap_generator.create()

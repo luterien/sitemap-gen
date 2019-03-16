@@ -1,4 +1,4 @@
-from sitemap.sitemap import BaseSitemap
+from sitemap.sitemap import BaseSitemap, SitemapGenerator
 
 
 class JobSitemap(BaseSitemap):
@@ -16,3 +16,11 @@ class JobSitemap(BaseSitemap):
             "url": self.url_handler.from_path("/jobs/%s" % item["slug"]),
             "date": None
         }
+
+
+sitemap_sources = [JobSitemap,]
+sitemap_generator = SitemapGenerator(
+    sources=sitemap_sources,
+    target_location="/tmp"
+)
+filename = sitemap_generator.create()
