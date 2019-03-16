@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from sitemap.sitemap import BaseSitemap, SitemapGenerator
 
 
@@ -14,7 +15,7 @@ class JobSitemap(BaseSitemap):
     def serialize(self, item):
         return {
             "url": self.url_handler.from_path("/jobs/%s" % item["slug"]),
-            "date": None
+            "date": "YYYY-MM-DD"
         }
 
 

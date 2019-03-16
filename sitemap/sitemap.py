@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import urllib.parse
 import requests
 import json
@@ -16,6 +15,7 @@ class Client:
             return json.loads(resp.content)
         except:
             raise
+
 
 class URLHandler:
 
@@ -65,8 +65,7 @@ class XMLFileMaker:
 
     def make_node(self, item):
         template= """<url>\n<loc>%s/</loc>\n<lastmod>%s</lastmod>\n<changefreq>daily</changefreq>\n<priority>0.8</priority>\n</url>"""
-        today = "2019-01-03"
-        return template % (item.get('url'), item.get('date') or today)
+        return template % (item.get('url'), item.get('date'))
 
     def make_file(self, content):
         base = """<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s\n</urlset>"""
