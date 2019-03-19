@@ -11,7 +11,6 @@ class Client:
     def get(self, url):
         try:
             resp = requests.get(url)
-            print(url)
             return json.loads(resp.content)
         except:
             raise
